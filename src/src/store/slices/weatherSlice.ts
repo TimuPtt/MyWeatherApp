@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { IWeatherData, ServerResponse } from "../../models/models";
+import { IWeatherData } from "../../models/models";
 
 interface WeatherState {
   loading: boolean;
@@ -10,7 +10,7 @@ interface WeatherState {
 const initialState: WeatherState = {
   loading: false,
   error: "",
-  data: null!,
+  data: {} as IWeatherData,
 };
 
 export const weatherSlice = createSlice({
@@ -23,6 +23,7 @@ export const weatherSlice = createSlice({
     fetchSuccess(state, action: PayloadAction<IWeatherData>) {
       state.loading = false;
       state.data = action.payload;
+      state.error = '';
     },
     fetchError(state, action: PayloadAction<Error>) {
       state.loading = false;

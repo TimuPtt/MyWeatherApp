@@ -33,7 +33,7 @@ export interface IWeatherData {
     type: number;
   };
   timezone: number;
-  visizibility: number;
+  visibility: number;
   weather: IWeather[];
   wind: {
     speed: number;
